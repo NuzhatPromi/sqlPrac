@@ -117,12 +117,48 @@ public class DBOperationTest {
 		assertTrue(userDAOimpl.checkIn("Dhaka", "Barishal"));
 		assertFalse(userDAOimpl.checkIn("Dhakaa", "Barishal"));
 	}
-	
+
 	@Test
 	public void checkBetweenTest() {
 		UserDAOImpl userDAOimpl = new UserDAOImpl();
 		assertTrue(userDAOimpl.checkBetween(201514030, 201514039));
 		assertTrue(userDAOimpl.checkBetween(20, 201514039));
+	}
+
+	@Test
+	public void checkJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkJoin());
+	}
+
+	@Test
+	public void checkInnerJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkInnerJoin());
+	}
+
+	@Test
+	public void checkLeftJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkLeftJoin());
+	}
+
+	@Test
+	public void checkRightJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkRightJoin());
+	}
+
+	@Test
+	public void checkFullJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkFullJoin());
+	}
+
+	@Test
+	public void checkSelfJoinTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkSelfJoin());
 	}
 
 }

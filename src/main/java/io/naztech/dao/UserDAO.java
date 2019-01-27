@@ -10,5 +10,10 @@ public interface UserDAO {
 	boolean checkWildcard(String str);
 	boolean checkIn(String str1, String str2);
 	boolean checkBetween(int id1, int id2);
-	
+	boolean checkJoin();
+	boolean checkInnerJoin();
+	boolean checkLeftJoin();
+	boolean checkRightJoin();
+	boolean checkFullJoin();
+	boolean checkSelfJoin();
 }

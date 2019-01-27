@@ -100,4 +100,89 @@ public class UserDAOImpl implements UserDAO {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean checkJoin() {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkInnerJoin() {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkInnerJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkLeftJoin() {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkLeftJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkRightJoin() {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkRightJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkFullJoin() {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkFullJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public boolean checkSelfJoin() {
+		// TODO Auto-generated method stub
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkSelfJoinData();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return false;
+	}
 }

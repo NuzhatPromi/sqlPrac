@@ -154,4 +154,127 @@ public class DBOperation {
 		return false;
 	}
 
+	public boolean checkJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select Order_Nuzhat.order_id, Employee_Nuzhat.e_name, Employee_Nuzhat.e_city, Order_Nuzhat.order_name, Order_Nuzhat.order_quantity from Order_Nuzhat inner join Employee_Nuzhat on Order_Nuzhat.e_userId=Employee_Nuzhat.e_userId";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			int order_id = rs.getInt("order_id");
+			String city = rs.getString("e_city");
+			String order_name = rs.getString("order_name");
+			int quantity = rs.getInt("order_quantity");
+			if (nString != null && order_id != 0 && city != null && order_name != null && quantity != 0)
+				return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkInnerJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select Order_Nuzhat.order_id, Employee_Nuzhat.e_name, Employee_Nuzhat.e_city, Order_Nuzhat.order_name, Order_Nuzhat.order_quantity, Order_Nuzhat.order_price from Order_Nuzhat inner join Employee_Nuzhat on Order_Nuzhat.e_userId=Employee_Nuzhat.e_userId";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			int order_id = rs.getInt("order_id");
+			String city = rs.getString("e_city");
+			String order_name = rs.getString("order_name");
+			int quantity = rs.getInt("order_quantity");
+			float price = rs.getFloat("order_price");
+			if (nString != null && order_id != 0 && city != null && order_name != null && quantity != 0 && price != 0)
+				return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkLeftJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select Order_Nuzhat.order_id, Employee_Nuzhat.e_name, Employee_Nuzhat.e_city, Order_Nuzhat.order_name, Order_Nuzhat.order_quantity from Order_Nuzhat left join Employee_Nuzhat on Order_Nuzhat.e_userId=Employee_Nuzhat.e_userId order by Employee_Nuzhat.e_name";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			int order_id = rs.getInt("order_id");
+			String city = rs.getString("e_city");
+			String order_name = rs.getString("order_name");
+			int quantity = rs.getInt("order_quantity");
+			if (nString != null && order_id != 0 && city != null && order_name != null && quantity != 0)
+				return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkRightJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select Order_Nuzhat.order_id, Employee_Nuzhat.e_name, Employee_Nuzhat.e_city, Order_Nuzhat.order_name, Order_Nuzhat.order_quantity from Order_Nuzhat right join Employee_Nuzhat on Order_Nuzhat.e_userId=Employee_Nuzhat.e_userId order by Employee_Nuzhat.e_name";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			int order_id = rs.getInt("order_id");
+			String city = rs.getString("e_city");
+			String order_name = rs.getString("order_name");
+			int quantity = rs.getInt("order_quantity");
+			if (nString != null && order_id != 0 && city != null && order_name != null && quantity != 0)
+				return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkFullJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select Order_Nuzhat.order_id, Employee_Nuzhat.e_name, Employee_Nuzhat.e_city, Order_Nuzhat.order_name, Order_Nuzhat.order_quantity from Order_Nuzhat full outer join Employee_Nuzhat on Order_Nuzhat.e_userId=Employee_Nuzhat.e_userId order by Employee_Nuzhat.e_name";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			int order_id = rs.getInt("order_id");
+			String city = rs.getString("e_city");
+			String order_name = rs.getString("order_name");
+			int quantity = rs.getInt("order_quantity");
+			if (nString != null && order_id != 0 && city != null && order_name != null && quantity != 0)
+				return true;
+		}
+
+		return false;
+	}
+
+	public boolean checkSelfJoinData() throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select A.e_name as Employee_name1, B.e_name as Employee_name2, A.e_city from Employee_Nuzhat A, Employee_Nuzhat B where A.e_userId <> B.e_userId and A.e_city=B.e_city order by e_city";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String city = rs.getString("e_city");
+			if (city != null)
+				return true;
+		}
+
+		return false;
+	}
+
 }
