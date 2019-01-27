@@ -8,7 +8,7 @@ public interface UserDAO {
 	int updateUser(User User);
 	User userFindById(int userid);
 	boolean checkWildcard(String str);
-	boolean checkIn();
+	boolean checkIn(String str1, String str2);
 	boolean checkBetween();
 	
 }

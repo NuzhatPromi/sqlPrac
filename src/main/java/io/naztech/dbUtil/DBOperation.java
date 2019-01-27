@@ -107,31 +107,27 @@ public class DBOperation {
 
 		return false;
 	}
-	
-//	public boolean checkInData() {
-//		DBConnection conn = DBConnection.getInstance();
-//		Connection dbConnection = conn.getConnection();
-//
-//		String query = "select e_name,e_userId,e_salary,e_country,e_city,e_zipCode from [dbo].[Employee_Nuzhat] where e_city in (?";
-//				for (int i = 0; i< numberOfParameters; i++)
-//				{ 
-//				query = query + ",?";
-//				} 
-//				query = query + ")";
-//		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
-//
-//		preparedStatement.setString(1, str + "%");
-//		ResultSet rs = preparedStatement.executeQuery();
-//		while (rs.next()) {
-//			String nString = rs.getString("e_name");
-//			String country = rs.getString("e_country");
-//			String salary = rs.getString("e_salary");
-//			String city = rs.getString("e_city");
-//			int zip = rs.getInt("e_zipCode");
-//			if (nString != null && country != null && salary != null && city != null && zip != 0)
-//				return true;
-//		}
-//
-//		return false;
-//	}
+
+	public boolean checkInData(String str1, String str2) throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select e_name,e_userId,e_salary,e_country,e_city,e_zipCode from [dbo].[Employee_Nuzhat] where e_city in (?, ?)";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		preparedStatement.setString(1, str1);
+		preparedStatement.setString(2, str2);
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			String country = rs.getString("e_country");
+			String salary = rs.getString("e_salary");
+			String city = rs.getString("e_city");
+			int zip = rs.getInt("e_zipCode");
+			if (nString != null && country != null && salary != null && city != null && zip != 0)
+				return true;
+		}
+
+		return false;
+	}
 }

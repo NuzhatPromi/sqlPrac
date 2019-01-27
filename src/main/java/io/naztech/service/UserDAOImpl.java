@@ -74,16 +74,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean checkIn() {
-//		DBOperation dbOperations = new DBOperation();
-//
-//		try {
-//			return dbOperations.checkInData(str);
-//
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+	public boolean checkIn(String str1, String str2) {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkInData(str1, str2);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 

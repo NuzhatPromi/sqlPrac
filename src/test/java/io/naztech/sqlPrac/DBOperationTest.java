@@ -108,13 +108,14 @@ public class DBOperationTest {
 		assertFalse(userDAOimpl.checkWildcard("R"));
 		assertTrue(userDAOimpl.checkWildcard("S"));
 		assertTrue(userDAOimpl.checkWildcard("Pro"));
-		// assertEquals(user, userDAOimpl.checkWildcard("T"));
 	}
-	
-//	@Test
-//	public void checkInTest() {
-//		UserDAOImpl userDAOimpl = new UserDAOImpl();
-//		assertTrue(userDAOimpl.checkIn("Dhaka", "Barisal"));
-//	}
+
+	@Test
+	public void checkInTest() {
+		UserDAOImpl userDAOimpl = new UserDAOImpl();
+		assertTrue(userDAOimpl.checkIn("Dhaka", "Barisal"));
+		assertTrue(userDAOimpl.checkIn("Dhaka", "Barishal"));
+		assertFalse(userDAOimpl.checkIn("Dhakaa", "Barishal"));
+	}
 
 }
