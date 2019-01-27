@@ -88,8 +88,16 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean checkBetween() {
-		// TODO Auto-generated method stub
+	public boolean checkBetween(int id1, int id2) {
+		DBOperation dbOperations = new DBOperation();
+
+		try {
+			return dbOperations.checkBetweenData(id1, id2);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 }

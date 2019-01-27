@@ -9,6 +9,6 @@ public interface UserDAO {
 	User userFindById(int userid);
 	boolean checkWildcard(String str);
 	boolean checkIn(String str1, String str2);
-	boolean checkBetween();
+	boolean checkBetween(int id1, int id2);
 	
 }

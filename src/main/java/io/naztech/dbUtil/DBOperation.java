@@ -130,4 +130,28 @@ public class DBOperation {
 
 		return false;
 	}
+
+	public boolean checkBetweenData(int id1, int id2) throws SQLException {
+		DBConnection conn = DBConnection.getInstance();
+		Connection dbConnection = conn.getConnection();
+
+		String query = "select e_name,e_userId,e_salary,e_country,e_city,e_zipCode from [dbo].[Employee_Nuzhat] where e_userId between ? and ?";
+		PreparedStatement preparedStatement = dbConnection.prepareStatement(query);
+
+		preparedStatement.setInt(1, id1);
+		preparedStatement.setInt(2, id2);
+		ResultSet rs = preparedStatement.executeQuery();
+		while (rs.next()) {
+			String nString = rs.getString("e_name");
+			String country = rs.getString("e_country");
+			String salary = rs.getString("e_salary");
+			String city = rs.getString("e_city");
+			int zip = rs.getInt("e_zipCode");
+			if (nString != null && country != null && salary != null && city != null && zip != 0)
+				return true;
+		}
+
+		return false;
+	}
+
 }
